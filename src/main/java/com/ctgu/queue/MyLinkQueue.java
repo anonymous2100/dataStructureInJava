@@ -1,7 +1,10 @@
 package com.ctgu.queue;
 
 /**
- * 链队列，即使用链表实现队列，默认链表头为队列头，链表尾为队列尾，尾进头出
+ * @ClassName: MyLinkQueue
+ * @Description: 链队列，即使用链表实现队列，默认链表头为队列头，链表尾为队列尾，尾进头出
+ * @author lh2
+ * @date 2020年4月23日 下午12:53:49
  */
 public class MyLinkQueue implements IQueue
 {
@@ -104,6 +107,7 @@ public class MyLinkQueue implements IQueue
 		System.out.print("]\n");
 	}
 
+	// 链表结点定义，这里用Object代表泛型
 	public class Node
 	{
 		Object data;  // 存储数据

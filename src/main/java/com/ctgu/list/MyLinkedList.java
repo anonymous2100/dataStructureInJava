@@ -1,9 +1,10 @@
 package com.ctgu.list;
 
 /**
- * 单链表
- * 
+ * @ClassName: MyLinkedList
+ * @Description: 单链表
  * @author lh2
+ * @date 2020年4月23日 下午12:12:23
  */
 public class MyLinkedList implements IList
 {
@@ -219,7 +220,8 @@ public class MyLinkedList implements IList
 		sb.append("[");
 		for (int i = 0; i < this.size; i++)
 		{
-			sb.append(get(i)).append("->");
+			sb.append(get(i))
+					.append("->");
 		}
 		String listStr = sb.toString();
 

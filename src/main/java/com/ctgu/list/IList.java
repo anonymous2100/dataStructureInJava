@@ -1,9 +1,10 @@
 package com.ctgu.list;
 
 /**
- * 线性表通用方法
- * 
+ * @ClassName: IList
+ * @Description: 线性表通用方法
  * @author lh2
+ * @date 2020年4月23日 下午12:15:55
  */
 public interface IList
 {

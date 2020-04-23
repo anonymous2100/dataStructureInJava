@@ -1,7 +1,10 @@
 package com.ctgu.queue;
 
 /**
- * 定义队列的基本操作
+ * @ClassName: IQueue
+ * @Description: 队列的基本操作
+ * @author lh2
+ * @date 2020年4月23日 下午12:35:30
  */
 public interface IQueue
 {

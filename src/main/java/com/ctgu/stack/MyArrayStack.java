@@ -1,9 +1,10 @@
 package com.ctgu.stack;
 
 /**
- * 顺序栈
- * 
+ * @ClassName: MyArrayStack
+ * @Description: 顺序栈，基于数组实现
  * @author lh2
+ * @date 2020年4月23日 下午12:30:15
  */
 public class MyArrayStack implements IStack
 {
@@ -151,9 +152,8 @@ public class MyArrayStack implements IStack
 		s.printList();
 		while (!s.isEmpty())
 		{
-			System.out.println("出栈元素："+s.pop());
+			System.out.println("出栈元素：" + s.pop());
 		}
-
 		s.printList();
 
 	}

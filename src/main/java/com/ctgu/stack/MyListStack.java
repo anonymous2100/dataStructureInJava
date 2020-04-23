@@ -1,7 +1,10 @@
 package com.ctgu.stack;
 
 /**
- * 链栈
+ * @ClassName: MyListStack
+ * @Description: 链表实现的栈
+ * @author lh2
+ * @date 2020年4月23日 下午12:34:33
  */
 public class MyListStack implements IStack
 {

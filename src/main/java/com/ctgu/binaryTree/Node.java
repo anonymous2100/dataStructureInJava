@@ -1,7 +1,10 @@
 package com.ctgu.binaryTree;
 
 /**
- * 二叉树节点定义
+ * @ClassName: Node
+ * @Description: 二叉树的节点定义
+ * @author lh2
+ * @date 2020年4月23日 下午9:41:22
  */
 public class Node
 {

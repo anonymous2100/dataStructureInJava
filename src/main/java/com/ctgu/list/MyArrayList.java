@@ -1,9 +1,10 @@
 package com.ctgu.list;
 
 /**
- * 顺序表
- * 
+ * @ClassName: MyArrayList
+ * @Description: 顺序表
  * @author lh2
+ * @date 2020年4月23日 下午12:14:19
  */
 public class MyArrayList implements IList
 {
@@ -110,19 +111,6 @@ public class MyArrayList implements IList
 		}
 	}
 
-//	@Override
-//	public void remove(Object data)
-//	{
-//		for (int i = 0; i <= this.current; i++)
-//		{
-//			if (dataArray[i] == data)
-//			{
-//				this.dataArray[i] = this.dataArray[i + 1];
-//			}
-//		}
-//		this.current--;
-//	}
-
 	public void delete(int index)
 	{
 		if (index < 0 || index > this.current)
@@ -167,7 +155,8 @@ public class MyArrayList implements IList
 		sb.append("[");
 		for (int i = 0; i <= this.current; i++)
 		{
-			sb.append(get(i)).append(" ");
+			sb.append(get(i))
+					.append(" ");
 		}
 		sb.append("]");
 		System.out.println(sb);
@@ -213,7 +202,6 @@ public class MyArrayList implements IList
 		// }
 		// list.clear();
 		// list.printList();
-
 	}
 
 }

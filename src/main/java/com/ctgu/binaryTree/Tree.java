@@ -1,5 +1,11 @@
 package com.ctgu.binaryTree;
 
+/**
+ * @ClassName: Tree
+ * @Description: 二叉树的基本操作定义
+ * @author lh2
+ * @date 2020年4月23日 下午9:41:00
+ */
 public interface Tree
 {
 	// 插入新节点

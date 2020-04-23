@@ -1,9 +1,10 @@
 package com.ctgu.list;
 
 /**
- * 单循环链表
- * 
+ * @ClassName: SingleCicleList
+ * @Description: 单循环链表
  * @author lh2
+ * @date 2020年4月23日 下午12:15:13
  */
 public class SingleCicleList implements IList
 {

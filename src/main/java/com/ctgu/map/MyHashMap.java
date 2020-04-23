@@ -1,12 +1,13 @@
 package com.ctgu.map;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**
- * 简单实现HashMap
- *
+ * @ClassName: MyHashMap
+ * @Description:简单实现HashMap，实现了元素的存取和自动扩容操作
+ * @author lh2
+ * @date 2020年4月23日 下午12:26:04
  * @param <K>
  * @param <V>
  */
@@ -56,6 +57,7 @@ public class MyHashMap<K, V> implements MyMap<K, V>
 			System.out.println("开始扩容...");
 			resize(2 * this.initalCapacity);
 		}
+
 		// 对key做一次hash获得索引
 		int index = hash(key);
 
@@ -96,22 +98,23 @@ public class MyHashMap<K, V> implements MyMap<K, V>
 	private int hash(K k)
 	{
 		// 数组下标从0开始，所以这里要用数组长度减1来取余
+		// jdk源码里用的是位操作（这里为了方便理解，就直接用的%取余），原理如下所述：
+		// 取余(%)操作中如果除数是2的幂次则等价于与其除数减一的与(&)操作
+		// （也就是说 hash%length==hash&(length-1)的前提是 length 是2的 n 次方；）。
+		// 并且 采用二进制位操作 &，相对于%能够提高运算效率，这就解释了 HashMap 的长度为什么是2的幂次方。
 		int index = k.hashCode() % (this.initalCapacity - 1);
 		return index < 0 ? -index : index;
 	}
 
 	private void resize(int capacity)
 	{
-		// 扩容
+		// 扩容操作
 		Entry<K, V>[] newTable = new Entry[capacity];
 		this.initalCapacity = capacity;
 		this.size = 0;
-		// 重散列
-		rehash(newTable);
-	}
 
-	private void rehash(MyHashMap<K, V>.Entry<K, V>[] newTable)
-	{
+		// 以下是重新哈希过程：将原来数组里的数据全部放到新的扩容数组里，数组下标重新计算，链表节点重新连接
+		// 这个过程比较耗时，所以最好在使用HashMap时就预先判断需要的容量大小，并指定初始容量大小
 		// 将原来表中的所有元素先存在list中
 		Entry<K, V>[] oldTable = this.table;
 		List<Entry<K, V>> entryList = new ArrayList<Entry<K, V>>();
@@ -124,7 +127,6 @@ public class MyHashMap<K, V> implements MyMap<K, V>
 				entry = entry.next;
 			}
 		}
-
 		// 将table引用指向新的table
 		this.table = newTable;
 
@@ -204,33 +206,32 @@ public class MyHashMap<K, V> implements MyMap<K, V>
 	public static void main(String[] args)
 	{
 		MyMap<String, Integer> map = new MyHashMap<>();
-		// map.put("a", 20);
-		// map.put("b", 30);
-		// map.put("c", 43);
+		map.put("a", 20);
+		map.put("b", 30);
+		map.put("c", 43);
+		System.out.println(map.get("a"));
+		System.out.println(map.get("b"));
+		System.out.println(map.get("c"));
+
+		// for (int i = 0; i < 300; i++)
+		// {
+		// map.put("test" + i, i);
+		// System.out.println("放入:" + i);
+		// try
+		// {
+		// Thread.sleep(100);
+		// }
+		// catch (InterruptedException e)
+		// {
+		// e.printStackTrace();
+		// }
+		// }
 		//
-		// System.out.println(map.get("a"));
-		// System.out.println(map.get("b"));
-		// System.out.println(map.get("c"));
-
-		for (int i = 0; i < 300; i++)
-		{
-			map.put("test" + i, i);
-			System.out.println("放入:" + i);
-			try
-			{
-				Thread.sleep(100);
-			}
-			catch (InterruptedException e)
-			{
-				e.printStackTrace();
-			}
-		}
-
-		for (int i = 0; i < 100; i++)
-		{
-			System.out.println(map.get("test" + i));
-		}
-		System.out.println("map的大小:" + map.size());
+		// for (int i = 0; i < 100; i++)
+		// {
+		// System.out.println(map.get("test" + i));
+		// }
+		// System.out.println("map的大小:" + map.size());
 
 	}
 

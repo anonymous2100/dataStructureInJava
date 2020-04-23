@@ -1,5 +1,11 @@
 package com.ctgu.stack;
 
+/**
+ * @ClassName: IStack
+ * @Description: 栈的基本操作定义
+ * @author lh2
+ * @date 2020年4月23日 下午12:29:47
+ */
 public interface IStack
 {
 	// 进栈

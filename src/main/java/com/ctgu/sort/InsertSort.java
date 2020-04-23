@@ -1,7 +1,12 @@
 package com.ctgu.sort;
 
+import java.util.Arrays;
+
 /**
- * 插入排序
+ * @ClassName: InsertSort
+ * @Description: 插入排序：
+ * @author lh2
+ * @date 2020年4月23日 下午1:45:46
  */
 public class InsertSort
 {
@@ -11,7 +16,7 @@ public class InsertSort
 	 * @param data
 	 *            待排序数组
 	 */
-	public void insertSort(int[] a, boolean isAscending)
+	public static void insertSort(int[] a)
 	{
 		if (a == null || a.length == 0)
 		{
@@ -29,48 +34,24 @@ public class InsertSort
 			// 从后往前遍历有序序列，找出比temp大的元素，
 			for (j = i - 1; j >= 0; j--)
 			{
-				if (isAscending)
+				// 如果有序序列尾部元素a比temp大，则把a往后移动一位
+				// 再用temp来填补a的位置
+				if (a[j] > temp)
 				{
-					// 如果有序序列尾部元素a比temp大，则把a往后移动一位
-					// 再用temp来填补a的位置
-					if (a[j] > temp)
-					{
-						a[j + 1] = a[j];
-						a[j] = temp;
-					}
-				}
-				else
-				{
-					// 如果有序序列尾部元素a比temp小，则把a往后移动一位
-					// 再用temp来填补a的位置
-					if (a[j] < temp)
-					{
-						a[j + 1] = a[j];
-						a[j] = temp;
-					}
+					a[j + 1] = a[j];
+					a[j] = temp;
 				}
 			}
 		}
 	}
 
-	public void printAll(int[] data)
-	{
-		for (int j = 0; j < data.length; j++)
-		{
-			System.out.print(data[j] + ", ");
-		}
-		System.out.println();
-	}
-
 	public static void main(String[] args)
 	{
 		int[] data = new int[] { 14, 22, 64, 37, 89, 24, 51, 0, 19, 33, 62 };
-		// int[] data = { 6, 17, 26, 18, 19, 39, 1, 14, 3, 40 };
-		// int[] data = { 38, 65, 97, 76, 13, 27, 49 };
 
-		InsertSort is = new InsertSort();
-		is.insertSort(data, true);
+		System.out.println("排序前：" + Arrays.toString(data));
+		insertSort(data);
+		System.out.println("\n排序后：" + Arrays.toString(data));
 
-		is.printAll(data);
 	}
 }

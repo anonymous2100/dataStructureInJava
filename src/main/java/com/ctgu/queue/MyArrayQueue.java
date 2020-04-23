@@ -1,9 +1,14 @@
 package com.ctgu.queue;
 
+import java.util.Arrays;
+
 /**
- * 顺序队列（非循环队列），用数组实现（队列：队头(head,data[0])出队，队尾(tail,data[data.length-1)入队）
- * <p>
- * 队头始终指向队列第一个元素，队尾指向队列最后一个元素的下一个位置
+ * @ClassName: MyArrayQueue
+ * @Description: 顺序队列（非循环队列），用数组实现 <br/>
+ *               （队列：队头(head,data[0])出队，队尾(tail,data[data.length-1)入队） <br/>
+ *               队头始终指向队列第一个元素，队尾指向队列最后一个元素的下一个位置
+ * @author lh2
+ * @date 2020年4月23日 下午12:35:57
  */
 public class MyArrayQueue implements IQueue
 {
@@ -64,7 +69,8 @@ public class MyArrayQueue implements IQueue
 	 */
 	private void ensureCapacity(int len)
 	{
-		if (len >= data.length)
+		// 元素全部都满了才自动扩容
+		if (len > data.length)
 		{
 			Object[] newArray = new Object[data.length * 2];
 			for (int i = 0; i < data.length; i++)
@@ -105,42 +111,43 @@ public class MyArrayQueue implements IQueue
 
 	public void printQueue()
 	{
-		System.out.print("[");
-		for (int i = 0; i < size; i++)
-		{
-			System.out.print(data[i] + ",");
-		}
-		System.out.print("]\n");
+		// System.out.print("队列元素为: [");
+		// for (int i = head; i < tail; i++)
+		// {
+		// System.out.print(data[i] + ",");
+		// }
+		// System.out.print("] \n");
+		System.out.print("队列元素为：" + Arrays.asList(data) + "\n");
 	}
 
 	public static void main(String[] args)
 	{
 		MyArrayQueue q = new MyArrayQueue();
-
-		// for (int i = 0; i < 10; i++)
+		// for (int i = 0; i < 13; i++)
 		// {
-		// System.out.println("入队列：");
 		// q.enqueue(i);
 		// q.printQueue();
 		// System.out.println("head=" + q.head + ",tail=" + q.tail + "\n");
 		// }
-		// System.out.println("-------------------");
-		//
-		// for (int i = 0; i < 10; i++)
-		// {
-		// q.dequeue();
-		// q.printQueue();
-		// System.out.println("head=" + q.head + ",tail=" + q.tail + "\n");
-		// }
-		// System.out.println(q.isEmpty());
-		// System.out.println(q.length());
 
-		for (int i = 0; i < 33; i++)
+		for (int i = 0; i <= 9; i++)
 		{
+			System.out.println("元素" + i + "入队列：");
 			q.enqueue(i);
 			q.printQueue();
 			System.out.println("head=" + q.head + ",tail=" + q.tail + "\n");
 		}
+		System.out.println("-------------------");
+
+		for (int i = 0; i <= 9; i++)
+		{
+			System.out.println("元素" + i + "出队列：");
+			q.dequeue();
+			q.printQueue();
+			System.out.println("head=" + q.head + ",tail=" + q.tail + "\n");
+		}
+		System.out.println("队列是否为空：" + q.isEmpty());
+		System.out.println("队列长度为：" + q.length());
 	}
 
 }

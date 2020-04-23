@@ -1,5 +1,11 @@
 package com.ctgu.test;
 
+/**
+ * @ClassName: FormatUtil
+ * @Description: json字符串格式化输出工具类
+ * @author lh2
+ * @date 2020年4月23日 下午9:42:03
+ */
 public class FormatUtil
 {
 
