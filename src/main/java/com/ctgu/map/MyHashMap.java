@@ -5,7 +5,7 @@ import java.util.List;
 
 /**
  * @ClassName: MyHashMap
- * @Description:简单实现HashMap，实现了元素的存取和自动扩容操作
+ * @Description:仿jdk1.7简单实现HashMap，实现了元素的存取和自动扩容操作
  * @author lh2
  * @date 2020年4月23日 下午12:26:04
  * @param <K>

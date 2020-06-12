@@ -1,4 +1,4 @@
-package com.ctgu.binaryTree;
+package com.ctgu.tree.binary_tree;
 
 /**
  * @ClassName: Tree
@@ -18,18 +18,18 @@ public interface Tree
 	public Node find(int key);
 
 	// 查找最大值
-	public Node findMax();
+	public Node findMax(Node oot);
 
 	// 查找最小值
-	public Node findMin();
+	public Node findMin(Node root);
 
 	// 中序遍历
-	public void infixOrder(Node current);
+	public void midOrder(Node root);
 
 	// 前序遍历
-	public void preOrder(Node current);
+	public void preOrder(Node root);
 
 	// 后序遍历
-	public void postOrder(Node current);
+	public void postOrder(Node root);
 
 }

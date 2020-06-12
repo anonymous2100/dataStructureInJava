@@ -1,4 +1,4 @@
-package com.ctgu.binaryTree;
+package com.ctgu.tree.binary_tree;
 
 /**
  * @ClassName: Node

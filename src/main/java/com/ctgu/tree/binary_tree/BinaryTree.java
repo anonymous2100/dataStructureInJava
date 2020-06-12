@@ -1,11 +1,17 @@
-package com.ctgu.binaryTree;
+package com.ctgu.tree.binary_tree;
 
-// 二叉树
-public class BinaryTree
+/**
+ * @ClassName: BinaryTree
+ * @Description: 二叉树基本定义实现
+ * @author lh2
+ * @date 2020年6月12日 下午4:26:24
+ */
+public class BinaryTree implements Tree
 {
 	private Node root;
 
 	// 根节点 //插入一个节点
+	@Override
 	public boolean insert(int data)
 	{
 		Node newNode = new Node(data);
@@ -51,6 +57,7 @@ public class BinaryTree
 		return false;
 	}		// 根据关键字查找
 
+	@Override
 	public Node find(int key)
 	{
 		Node current = root;  // 记录当前节点
@@ -75,10 +82,11 @@ public class BinaryTree
 		return current;
 	}
 
-	// 查找以Root为根的二叉树的最小值，最小值就是最左边的，并且没有左孩子的
-	public Node findMin(Node Root)
+	// 查找以root为根的二叉树的最小值，最小值就是最左边的，并且没有左孩子的
+	@Override
+	public Node findMin(Node root)
 	{
-		Node current = Root;
+		Node current = root;
 		while (current.leftChild != null)
 		{
 			current = current.leftChild;
@@ -86,10 +94,11 @@ public class BinaryTree
 		return current;
 	}
 
-	// 查找以Root为根的二叉树的最大值，最大值就是最右边的，并且没有右孩子的
-	public Node findMax(Node Root)
+	// 查找以root为根的二叉树的最大值，最大值就是最右边的，并且没有右孩子的
+	@Override
+	public Node findMax(Node root)
 	{
-		Node current = Root;
+		Node current = root;
 		while (current.rightChild != null)
 		{
 			current = current.rightChild;
@@ -97,7 +106,8 @@ public class BinaryTree
 		return current;
 	}
 
-	// 删除分三种情况：1.删除的是叶子节点 2.删除的节点只有一个孩子 3.有两个孩子的节点
+	// 删除分三种情况：1.删除的是叶子节点 2.删除只有一个孩子的节点 3.删除有两个孩子的节点
+	@Override
 	public boolean delete(int key)
 	{
 		Node delNode = root;          // 要删除的节点
@@ -218,36 +228,39 @@ public class BinaryTree
 	}
 
 	// 先序遍历
-	public void preOrder(Node Root)
+	@Override
+	public void preOrder(Node root)
 	{	// 如果不是空树
-		if (Root != null)
+		if (root != null)
 		{
 			// 先访问根节点
-			System.out.print(Root.data + " ");	 // 递归中序遍历左子树
-			preOrder(Root.leftChild);		    // 递归中序遍历右子树
-			preOrder(Root.rightChild);
+			System.out.print(root.data + " ");	 // 递归中序遍历左子树
+			preOrder(root.leftChild);		    // 递归中序遍历右子树
+			preOrder(root.rightChild);
 		}
 	}
 
 	// 中序遍历
-	public void midOrder(Node Root)
+	@Override
+	public void midOrder(Node root)
 	{	 // 如果不是空树
-		if (Root != null)
+		if (root != null)
 		{// 递归中序遍历左子树
-			midOrder(Root.leftChild);			// 再访问根节点
-			System.out.print(Root.data + " ");	 // 递归中序遍历右子树
-			midOrder(Root.rightChild);
+			midOrder(root.leftChild);			// 再访问根节点
+			System.out.print(root.data + " ");	 // 递归中序遍历右子树
+			midOrder(root.rightChild);
 		}
 	}
 
 	// 后序遍历
-	public void postOrder(Node Root)
+	@Override
+	public void postOrder(Node root)
 	{		// 如果不是空树
-		if (Root != null)
+		if (root != null)
 		{			// 递归中序遍历左子树
-			postOrder(Root.leftChild);		    // 递归中序遍历右子树
-			postOrder(Root.rightChild);			// 最后访问根节点
-			System.out.print(Root.data + " ");
+			postOrder(root.leftChild);		    // 递归中序遍历右子树
+			postOrder(root.rightChild);			// 最后访问根节点
+			System.out.print(root.data + " ");
 		}
 	}
 
@@ -277,4 +290,5 @@ public class BinaryTree
 		System.out.println();
 		bt.midOrder(bt.root);
 	}
+
 }

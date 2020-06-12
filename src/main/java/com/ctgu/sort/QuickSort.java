@@ -55,8 +55,7 @@ public class QuickSort
 		// 将pivot点元素放入基准位置
 		swap(a, pivot, index - 1);
 
-		// 返回已经排好的基准
-		// return pivot;
+		// 返回已经排好的基准// return pivot;
 		return index - 1;
 	}
 

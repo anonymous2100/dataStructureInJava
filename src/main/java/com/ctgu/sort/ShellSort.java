@@ -88,7 +88,6 @@ public class ShellSort
 	{
 		int[] data = getRandomArray(16, 0, 99);
 		// int[] data = new int[] { 14, 22, 64, 37, 89, 24, 51, 0, 19, 33, 62 };
-		// int[] data = new int[] { 56, 12, 80, 91, 20 };
 		// int[] data = new int[] { 5, 7, 8, 3, 1, 2, 4, 6 };
 		System.out.println("排序前：a=" + Arrays.toString(data));
 		shellSort(data);

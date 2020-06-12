@@ -3,7 +3,7 @@ package com.ctgu.sort;
 import java.util.Arrays;
 
 /**
- * @ClassName: BaseSort
+ * @ClassName: RadixSort
  * @Description: 基数排序
  * @author lh2
  * @date 2020年4月23日 下午4:04:20
