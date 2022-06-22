@@ -6,10 +6,16 @@ package com.ctgu.stack;
  * @author lh2
  * @date 2020年4月23日 下午12:30:15
  */
-public class MyArrayStack implements IStack
+public class MyArrayStack implements AbstractStack
 {
-	private Object[] data; // 保存栈中元素的数组
-	private int size; // 栈中元素的个数，也就是data数组中存储的元素个数
+	/**
+	 * 保存栈中元素的数组
+	 */
+	private Object[] data;
+	/**
+	 * 栈中元素的个数，也就是data数组中存储的元素个数
+	 */
+	private int size;
 
 	public MyArrayStack()
 	{
@@ -122,7 +128,11 @@ public class MyArrayStack implements IStack
 		System.out.print("栈中元素为：[");
 		for (int i = 0; i < size; i++)
 		{
-			System.out.print(data[i] + " ");
+			System.out.print(data[i]);
+			if (i != size - 1)
+			{
+				System.out.print("->");
+			}
 		}
 		System.out.println("]");
 	}
@@ -133,7 +143,7 @@ public class MyArrayStack implements IStack
 
 		for (int i = 0; i < 20; i++)
 		{
-			s.push(i);
+			s.push("s" + i);
 		}
 		s.printList();
 

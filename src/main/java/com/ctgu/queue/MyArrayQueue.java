@@ -10,7 +10,7 @@ import java.util.Arrays;
  * @author lh2
  * @date 2020年4月23日 下午12:35:57
  */
-public class MyArrayQueue implements IQueue
+public class MyArrayQueue implements AbstractQueue
 {
 	private Object[] data;
 	private int head = 0;

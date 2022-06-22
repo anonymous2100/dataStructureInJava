@@ -13,11 +13,21 @@ package com.ctgu.queue;
  * 办法3：设计一个计数器count，统计队列中的元素个数。此时，队列满的判断条件为：count > 0 && rear == front ； <br>
  * 队列空的判断条件为count == 0。
  */
-public class MyArrayCicleQueue implements IQueue
+public class MyArrayCicleQueue implements AbstractQueue
 {
-	private Object[] data; // 保存队列元素的数组
-	private int head = 0; // 队列头指针
-	private int tail = 0; // 队列尾指针
+	/**
+	 * 保存队列元素的数组
+	 */
+	private Object[] data;
+	/**
+	 * 队列头指针
+	 */
+	private int head = 0;
+	/**
+	 * 队列尾指针
+	 */
+	private int tail = 0;
+
 	private int size; // 队列大小
 
 	public MyArrayCicleQueue()
@@ -122,7 +132,8 @@ public class MyArrayCicleQueue implements IQueue
 	{
 		MyArrayCicleQueue q = new MyArrayCicleQueue();
 
-		System.out.println("入队列:");
+		System.out.println(
+				"-----------------------------------------入队列-----------------------------------------------");
 		for (int i = 0; i < 10; i++)
 		{
 			q.enqueue(i);
@@ -131,8 +142,8 @@ public class MyArrayCicleQueue implements IQueue
 			System.out.println("队列长度=" + q.length() + ",队列头=" + q.peek() + ",isEmpty=" + q.isEmpty() + ",isFull="
 					+ q.isFull() + "\n");
 		}
-		System.out.println("----------------------------------------------------------------------------------------");
-		System.out.println("出队列：");
+		System.out.println(
+				"----------------------------------------出队列------------------------------------------------");
 		for (int i = 0; i < 5; i++)
 		{
 			q.dequeue();
@@ -140,8 +151,8 @@ public class MyArrayCicleQueue implements IQueue
 			System.out.println("\nhead=" + q.head + ",tail=" + q.tail + "");
 			System.out.println("队列长度=" + q.length() + ",isEmpty=" + q.isEmpty() + ",isFull=" + q.isFull() + "\n");
 		}
-		System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
-		System.out.println("入队列:");
+		System.out.println(
+				"-----------------------------------------入队列-----------------------------------------------");
 		for (int i = 0; i < 3; i++)
 		{
 			q.enqueue(i);
@@ -150,27 +161,5 @@ public class MyArrayCicleQueue implements IQueue
 			System.out.println("队列长度=" + q.length() + ",队列头=" + q.peek() + ",isEmpty=" + q.isEmpty() + ",isFull="
 					+ q.isFull() + "\n");
 		}
-		System.out.println("----------------------------------------------------------------------------------------");
-		// System.out.println("入队列:");
-		// for (int i = 0; i < 10; i++)
-		// {
-		// q.enqueue(i);
-		// q.printQueue();
-		// System.out.println("\nhead=" + q.head + ",tail=" + q.tail + "");
-		// System.out.println("队列长度=" + q.length() + ",队列头=" + q.peek() + ",isEmpty=" + q.isEmpty() + ",isFull="
-		// + q.isFull() + "\n");
-		// }
-		//
-		// System.out.println(">>>入队列");
-		// // for (int i = 0; i < 8; i++)
-		// // {
-		// // q.enqueue(10+i);
-		// // }
-		// q.enqueue(123);
-		// q.printQueue();
-		// System.out.println("\nhead=" + q.head + ",tail=" + q.tail + "");
-		// System.out.println(
-		// "队列长度=" + q.length() + ",队列头=" + q.peek() + ",isEmpty=" + q.isEmpty() + ",isFull=" + q.isFull() + "\n");
 	}
-
 }

@@ -6,10 +6,17 @@ package com.ctgu.list;
  * @author lh2
  * @date 2020年4月23日 下午12:12:23
  */
-public class MyLinkedList implements IList
+public class MyLinkedList implements AbstractList
 {
-	private Node head = null; // 头结点
-	private int size = 0; // 链表长度
+	/**
+	 * 头结点
+	 */
+	private Node head = null;
+
+	/**
+	 * 链表长度
+	 */
+	private int size = 0;
 
 	public MyLinkedList()
 	{
@@ -220,8 +227,7 @@ public class MyLinkedList implements IList
 		sb.append("[");
 		for (int i = 0; i < this.size; i++)
 		{
-			sb.append(get(i))
-					.append("->");
+			sb.append(get(i)).append("->");
 		}
 		String listStr = sb.toString();
 
@@ -234,7 +240,7 @@ public class MyLinkedList implements IList
 	}
 
 	// 链表节点定义
-	public class Node
+	class Node
 	{
 		Object data;  // 存储数据
 		Node next; // 指向下一个结点的指针
@@ -266,6 +272,5 @@ public class MyLinkedList implements IList
 			list.delete(i);
 			list.printList();
 		}
-
 	}
 }

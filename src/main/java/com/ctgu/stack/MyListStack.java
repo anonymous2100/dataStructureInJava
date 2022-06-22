@@ -6,9 +6,15 @@ package com.ctgu.stack;
  * @author lh2
  * @date 2020年4月23日 下午12:34:33
  */
-public class MyListStack implements IStack
+public class MyListStack implements AbstractStack
 {
+	/**
+	 * 指向栈顶的指针
+	 */
 	private Node top = null;
+	/**
+	 * 栈中元素的个数
+	 */
 	private int size;
 
 	public MyListStack()
@@ -107,12 +113,17 @@ public class MyListStack implements IStack
 	 */
 	public void printList()
 	{
-		System.out.print("栈中元素为（栈顶->栈底）：[");
+		System.out.print("栈中元素为（栈顶<-栈底）：[");
 		Node temp = top;
 		int i = 0;
 		while (i < size)
 		{
-			System.out.print(temp.data + " ");
+			// System.out.print(temp.data + " ");
+			System.out.print(temp.data);
+			if (i != size - 1)
+			{
+				System.out.print("<-");
+			}
 			temp = temp.next;
 			i++;
 		}
@@ -122,7 +133,7 @@ public class MyListStack implements IStack
 	/**
 	 * 节点定义
 	 */
-	public class Node
+	class Node
 	{
 		Object data;  // 存储数据
 		Node next; // 指向下一个结点的指针
@@ -140,23 +151,29 @@ public class MyListStack implements IStack
 	public static void main(String[] args)
 	{
 		MyListStack s = new MyListStack();
+		System.out.println("元素进栈！");
 		for (int i = 0; i < 10; i++)
 		{
 			s.push(i);
 		}
 		s.printList();
 
+		System.out.println("栈顶元素出栈！");
 		s.pop();
 		s.printList();
 
+		System.out.print("获取栈顶元素（不出栈）：");
 		System.out.println(s.peek());
 
+		System.out.println("栈顶元素出栈！");
 		s.pop();
 		s.printList();
 
+		System.out.println("栈被清空！");
 		s.clear();
 		s.printList();
 
+		System.out.println("元素进栈！");
 		int i = 0;
 		while (i < 20)
 		{

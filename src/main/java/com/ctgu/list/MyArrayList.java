@@ -6,11 +6,20 @@ package com.ctgu.list;
  * @author lh2
  * @date 2020年4月23日 下午12:14:19
  */
-public class MyArrayList implements IList
+public class MyArrayList implements AbstractList
 {
-	private Object[] dataArray; // 用来保存数据的数组
-	private int current; // 保存最后一个元素位置的下标，也可以用来表示当前链表中的元素个数
-	private int size; // 链表大小
+	/**
+	 * 用来保存数据的数组
+	 */
+	private Object[] dataArray;
+	/**
+	 * 保存最后一个元素位置的下标，也可以用来表示当前链表中的元素个数
+	 */
+	private int current;
+	/**
+	 * 链表大小
+	 */
+	private int size;
 
 	public MyArrayList()
 	{
@@ -64,10 +73,10 @@ public class MyArrayList implements IList
 	public void add(Object data)
 	{
 		// 判断数组是否已满
-		// 如果数组已满，则再创建一个大小为原来3倍的数组，并把原来的数据复制到新数组中，然后把新数组的引用赋给data数组
+		// 如果数组已满，则再创建一个大小为原来2倍的数组，并把原来的数据复制到新数组中，然后把新数组的引用赋给data数组
 		if (current == size - 1)
 		{
-			Object[] newData = new Object[size * 3];
+			Object[] newData = new Object[size * 2];
 			for (int i = 0; i <= current; i++)
 			{
 				newData[i] = this.dataArray[i];
@@ -155,8 +164,12 @@ public class MyArrayList implements IList
 		sb.append("[");
 		for (int i = 0; i <= this.current; i++)
 		{
-			sb.append(get(i))
-					.append(" ");
+			sb.append(get(i)).append(" ,");
+		}
+		// 删除最后一个逗号
+		if ('[' != sb.charAt(sb.length() - 1))
+		{
+			sb.deleteCharAt(sb.length() - 1);
 		}
 		sb.append("]");
 		System.out.println(sb);
@@ -194,14 +207,14 @@ public class MyArrayList implements IList
 		list.printList();
 		System.out.println("当前list长度为：" + list.length() + "\n");
 
-		// //删除所有元素
-		// for (int i = 9; i >= 0; i--)
-		// {
-		// list.delete(i);
-		// list.printList();
-		// }
-		// list.clear();
-		// list.printList();
+		// 删除所有元素
+		for (int i = 12; i >= 0; i--)
+		{
+			Object deleted = list.get(i);
+			list.delete(i);
+			System.out.print("删除索引为【" + i + "】处的元素【" + deleted + "】后，list为：");
+			list.printList();
+		}
 	}
 
 }

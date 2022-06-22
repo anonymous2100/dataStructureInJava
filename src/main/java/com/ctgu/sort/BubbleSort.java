@@ -20,7 +20,7 @@ public class BubbleSort
 		// 外层循环控制趟数，总趟数为len-1
 		for (int i = 0; i < a.length; i++)
 		{
-			// 内层循环为当前i趟数 所需要比较的次数
+			// 内层循环为当前趟数 所需要比较的次数
 			for (int j = 0; j < a.length - i - 1; j++)
 			{
 				if (a[j] > a[j + 1]) // 相邻元素两两对比
@@ -40,6 +40,5 @@ public class BubbleSort
 		System.out.println("排序前：" + Arrays.toString(a));
 		bubbleSort(a);
 		System.out.println("\n排序后：" + Arrays.toString(a));
-
 	}
 }

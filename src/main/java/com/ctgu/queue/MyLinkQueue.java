@@ -6,11 +6,20 @@ package com.ctgu.queue;
  * @author lh2
  * @date 2020年4月23日 下午12:53:49
  */
-public class MyLinkQueue implements IQueue
+public class MyLinkQueue implements AbstractQueue
 {
-	private Node head; // 队列头
-	private Node tail; // 队列尾
-	private int size; // 队列大小
+	/**
+	 * 队列头
+	 */
+	private Node head;
+	/**
+	 * 队列尾
+	 */
+	private Node tail;
+	/**
+	 * 队列大小
+	 */
+	private int size;
 
 	public MyLinkQueue()
 	{
@@ -108,7 +117,7 @@ public class MyLinkQueue implements IQueue
 	}
 
 	// 链表结点定义，这里用Object代表泛型
-	public class Node
+	class Node
 	{
 		Object data;  // 存储数据
 		Node next; // 指向下一个结点的指针

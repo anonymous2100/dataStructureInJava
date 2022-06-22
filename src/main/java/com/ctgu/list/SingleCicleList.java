@@ -6,10 +6,16 @@ package com.ctgu.list;
  * @author lh2
  * @date 2020年4月23日 下午12:15:13
  */
-public class SingleCicleList implements IList
+public class SingleCicleList implements AbstractList
 {
-	private Node head = null; // 头结点
-	private int size = 0; // 链表长度
+	/**
+	 * 头结点
+	 */
+	private Node head = null;
+	/**
+	 * 链表长度
+	 */
+	private int size = 0;
 
 	public SingleCicleList()
 	{
@@ -229,7 +235,7 @@ public class SingleCicleList implements IList
 	/**
 	 * 单链表节点定义
 	 */
-	public class Node
+	class Node
 	{
 		Object data;  // 存储数据
 		Node next; // 指向下一个结点的指针
@@ -244,7 +250,9 @@ public class SingleCicleList implements IList
 		}
 	}
 
-	// 测试主方法
+	/**
+	 * 测试主方法
+	 */
 	public static void main(String[] args)
 	{
 		SingleCicleList list = new SingleCicleList();
@@ -254,8 +262,8 @@ public class SingleCicleList implements IList
 			list.add(i);
 		}
 		list.printList();
-		System.out.println("删除数据后");
 
+		System.out.print("\n删除数据后：");
 		list.delete(2);
 		list.printList();
 	}
